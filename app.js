@@ -9,7 +9,7 @@ const PORT = 3000;
 
 // Home Route
 app.get("/", (req, res) => {
-    res.send("<h1>Welcome to NodeJS Family</h1>");
+    res.send("<h1>Welcome to NodeJS Class</h1>");
 });
 
 // Start Server
