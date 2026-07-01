@@ -1,0 +1,36 @@
+name: NodeJS CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Install NodeJS
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Install packages
+      - name: Install Dependencies
+        run: npm install
+
+      # Run Test
+      - name: Run Test
+        run: npm test
+
+      # Build Docker Image
+      - name: Build Docker
+        run: docker build -t node-app .
